@@ -49,15 +49,27 @@ class DatabaseSeeder extends Seeder
             'slug' => 'why-i-switched-to-openbsd',
             'excerpt' => 'Lorem ipsum dolor sit amet.',
             'content' => 'Lorem ipsum dolor sit amet.',
+            'published_at' => '2022-01-31 09:13:08',
         ]);
 
         Post::create([
             'user_id' => $user->id,
             'category_id' => 1,
-            'title' => 'My history of learning ancient languages',
-            'slug' => 'my-history-of-learning-ancient-languages',
+            'title' => 'Git crash course',
+            'slug' => 'git-crash-course',
             'excerpt' => 'Lorem ipsum dolor sit amet.',
             'content' => 'Lorem ipsum dolor sit amet.',
+            'published_at' => '2022-02-18 10:21:02',
+        ]);
+
+        Post::create([
+            'user_id' => $user->id,
+            'category_id' => 1,
+            'title' => 'GTK4 application tutorial',
+            'slug' => 'GTK4-application-tutorial',
+            'excerpt' => 'Lorem ipsum dolor sit amet.',
+            'content' => 'Lorem ipsum dolor sit amet.',
+            'published_at' => '2022-02-22 10:32:11',
         ]);
     }
 }
