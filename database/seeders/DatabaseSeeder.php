@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             'title' => 'Mastering Laravel',
             'slug' => 'mastering-laravel',
             'excerpt' => 'Lorem ipsum dolor sit amet.',
-            'content' => 'Lorem ipsum dolor sit amet.',
+            'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
         ]);
 
         Post::create([
@@ -48,8 +48,8 @@ class DatabaseSeeder extends Seeder
             'title' => 'Why I switched to OpenBSD',
             'slug' => 'why-i-switched-to-openbsd',
             'excerpt' => 'Lorem ipsum dolor sit amet.',
-            'content' => 'Lorem ipsum dolor sit amet.',
             'published_at' => '2022-01-31 09:13:08',
+            'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
         ]);
 
         Post::create([
@@ -60,6 +60,7 @@ class DatabaseSeeder extends Seeder
             'excerpt' => 'Lorem ipsum dolor sit amet.',
             'content' => 'Lorem ipsum dolor sit amet.',
             'published_at' => '2022-02-18 10:21:02',
+            'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
         ]);
 
         Post::create([
@@ -70,6 +71,7 @@ class DatabaseSeeder extends Seeder
             'excerpt' => 'Lorem ipsum dolor sit amet.',
             'content' => 'Lorem ipsum dolor sit amet.',
             'published_at' => '2022-02-22 10:32:11',
+            'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>',
         ]);
     }
 }
