@@ -16,4 +16,10 @@ class DashboardController extends Controller
             'users_number' => User::count(),
         ]);
     }
+
+    public function posts() {
+        return view('dashboard.posts', [
+            'posts' => Post::orderBy('title')->get()
+        ]);
+    }
 }

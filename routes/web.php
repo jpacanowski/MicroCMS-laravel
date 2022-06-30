@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard/posts', [DashboardController::class, 'posts']);
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('/{slug}', [PostController::class, 'show']);
