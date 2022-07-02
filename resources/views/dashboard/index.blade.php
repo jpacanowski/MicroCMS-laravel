@@ -1,11 +1,13 @@
-@extends('dashboard/base')
+@extends('dashboard.base')
+
+@section('title', 'MicroCMS dashboard')
 
 @section('header')
-  @include('dashboard/header')
+  @include('dashboard.header')
 @stop
 
 @section('navbar')
-  @include('dashboard/navbar')
+  @include('dashboard.navbar')
 @stop
 
 @section('content')

@@ -22,4 +22,15 @@ class DashboardController extends Controller
             'posts' => Post::orderBy('title')->get()
         ]);
     }
+
+    public function addPost() {
+        return view('dashboard.post_add');
+    }
+
+
+    public function editPost(int $postId) {
+        return view('dashboard.post_edit', [
+            'post' => Post::whereId($postId)->first()
+        ]);
+    }
 }
