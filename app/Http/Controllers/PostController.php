@@ -23,8 +23,9 @@ class PostController extends Controller
 
     public function show(string $slug) {
 
-        $post = Post::where('slug', $slug)->first();
-        return view('posts.post', ['post' => $post]);
+        return view('posts.post', [
+            'post' => Post::whereSlug($slug)->first()
+        ]);
     }
 
     public function store(Request $request) {
