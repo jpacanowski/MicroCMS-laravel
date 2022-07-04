@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>My blog @yield('title')</title>
+        <title>My blog - @yield('title')</title>
     </head>
 
     <body>

@@ -1,4 +1,4 @@
-@extends('posts/base')
+@extends('posts.base')
 
 @section('content')
 

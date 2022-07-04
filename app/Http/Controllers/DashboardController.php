@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
+use App\Models\Page;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -31,6 +32,12 @@ class DashboardController extends Controller
     public function editPost(int $postId) {
         return view('dashboard.post_edit', [
             'post' => Post::whereId($postId)->first()
+        ]);
+    }
+
+    public function pages() {
+        return view('dashboard.pages', [
+            'pages' => Page::orderBy('title')->get()
         ]);
     }
 }

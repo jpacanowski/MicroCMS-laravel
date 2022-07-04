@@ -1,4 +1,6 @@
-@extends('posts/base')
+@extends('posts.base')
+
+@section('title', '- '.$post->title)
 
 @section('content')
 
