@@ -40,4 +40,14 @@ class DashboardController extends Controller
             'pages' => Page::orderBy('title')->get()
         ]);
     }
+
+    public function addPage() {
+        return view('dashboard.page_add');
+    }
+
+    public function editPage(int $pageId) {
+        return view('dashboard.page_edit', [
+            'page' => Page::whereId($pageId)->first()
+        ]);
+    }
 }

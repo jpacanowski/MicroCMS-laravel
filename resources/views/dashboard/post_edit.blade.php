@@ -20,7 +20,7 @@
         <div class="alert-success">{{ $info }}</div>
       @endif
 
-      <form class="form" action="/post/update/{{ $post-> id }}" method="post">
+      <form class="form" action="/post/update/{{ $post->id }}" method="post">
 
         @csrf
 

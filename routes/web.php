@@ -22,6 +22,8 @@ Route::get('/dashboard/posts', [DashboardController::class, 'posts']);
 Route::get('/dashboard/post/add', [DashboardController::class, 'addPost']);
 Route::get('/dashboard/post/edit/{id}', [DashboardController::class, 'editPost']);
 Route::get('/dashboard/pages', [DashboardController::class, 'pages']);
+Route::get('/dashboard/page/add', [DashboardController::class, 'addPage']);
+Route::get('/dashboard/page/edit/{id}', [DashboardController::class, 'editPage']);
 
 Route::get('/', [PostController::class, 'index']);
 Route::get('/{slug}', [PostController::class, 'show']);
@@ -30,3 +32,5 @@ Route::post('/post/store', [PostController::class, 'store']);
 Route::post('/post/update/{id}', [PostController::class, 'update']);
 
 Route::get('/page/{slug}', [PageController::class, 'show']);
+Route::post('/page/store', [PageController::class, 'store']);
+Route::post('/page/update/{id}', [PageController::class, 'update']);

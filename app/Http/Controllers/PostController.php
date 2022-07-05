@@ -57,6 +57,7 @@ class PostController extends Controller
         Post::whereId($postId)->update([
             'title' => $request->input('post_title'),
             'content' => $request->input('post_content'),
+            'slug' => Str::slug($request->input('post_title', '-')),
         ]);
 
         return redirect()
