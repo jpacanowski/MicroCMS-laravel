@@ -14,6 +14,7 @@ class DashboardController extends Controller
         return view('dashboard.index', [
             'php_version' => phpversion(),
             'posts_number' => Post::count(),
+            'pages_number' => Page::count(),
             'users_number' => User::count(),
         ]);
     }

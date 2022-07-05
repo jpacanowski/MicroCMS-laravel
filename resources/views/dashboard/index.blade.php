@@ -25,14 +25,14 @@
             </div>
           </div>
         </li>
-        <!-- <li>
+        <li>
           <div class="infobox">
             <div class="infobox-inner">
-              <p>{{ 'pages_number' }}</p>
+              <p>{{ $pages_number }}</p>
               <h3>Pages number</h3>
             </div>
           </div>
-        </li> -->
+        </li>
         <!-- <li>
           <div class="infobox">
             <div class="infobox-inner">
