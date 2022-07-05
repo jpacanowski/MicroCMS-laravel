@@ -48,4 +48,13 @@ class PageController extends Controller
             ->to('dashboard/page/edit/' . $pageId)
             ->with('info', 'Page has been edited successfully');
     }
+
+    public function delete(int $pageId) {
+
+        Page::whereId($pageId)->delete();
+
+        return redirect()
+            ->to('dashboard/pages')
+            ->with('info', 'Page has been deleted successfully');
+    }
 }

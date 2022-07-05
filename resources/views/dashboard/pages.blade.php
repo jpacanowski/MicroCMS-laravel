@@ -16,6 +16,10 @@
 
       <h1>Pages</h1>
 
+      @if ($info = session('info'))
+        <div class="alert-success">{{ $info }}</div>
+      @endif
+
       <ul class="posts">
 
         @foreach ($pages as $page)
@@ -31,9 +35,9 @@
                   <a href="/dashboard/page/edit/{{ $page->id }}" class="btn-edit">Edit</a>
                 </li>
                 <li>
-                  <form class="form_delete" method="POST" action="dashboard/post/delete/{{ $page->id }}">
+                  <form class="form_delete" method="POST" action="/page/delete/{{ $page->id }}">
                     <input type="hidden" name="_method" value="DELETE" />
-                    <input type="hidden" name="_token" value="{{ 'csrf_token()' }}" />
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <a href="/dashboard/page/delete/{{ $page->id }}" class="btn-delete" onclick="event.target.parentNode.submit(); return false;">Delete</a>
                   </form>
                 </li>

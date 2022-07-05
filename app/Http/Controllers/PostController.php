@@ -64,4 +64,13 @@ class PostController extends Controller
             ->to('dashboard/post/edit/' . $postId)
             ->with('info', 'Post has been edited successfully');
     }
+
+    public function delete(int $postId) {
+
+        Post::whereId($postId)->delete();
+
+        return redirect()
+            ->to('dashboard/posts')
+            ->with('info', 'Post has been deleted successfully');
+    }
 }

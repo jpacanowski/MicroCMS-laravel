@@ -30,7 +30,9 @@ Route::get('/{slug}', [PostController::class, 'show']);
 
 Route::post('/post/store', [PostController::class, 'store']);
 Route::post('/post/update/{id}', [PostController::class, 'update']);
+Route::delete('/post/delete/{id}', [PostController::class, 'delete']);
 
 Route::get('/page/{slug}', [PageController::class, 'show']);
 Route::post('/page/store', [PageController::class, 'store']);
 Route::post('/page/update/{id}', [PageController::class, 'update']);
+Route::delete('/page/delete/{id}', [PageController::class, 'delete']);
