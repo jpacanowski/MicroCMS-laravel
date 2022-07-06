@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Page;
 use App\Models\User;
+use App\Models\Category;
 
 class DashboardController extends Controller
 {
@@ -16,6 +17,7 @@ class DashboardController extends Controller
             'posts_number' => Post::count(),
             'pages_number' => Page::count(),
             'users_number' => User::count(),
+            'categories_number' => Category::count(),
         ]);
     }
 
@@ -49,6 +51,22 @@ class DashboardController extends Controller
     public function editPage(int $pageId) {
         return view('dashboard.page_edit', [
             'page' => Page::whereId($pageId)->first()
+        ]);
+    }
+
+    public function categories() {
+        return view('dashboard.categories', [
+            'categories' => Category::orderBy('name')->get()
+        ]);
+    }
+
+    public function addCategory() {
+        return view('dashboard.category_add');
+    }
+
+    public function editCategory(int $categoryId) {
+        return view('dashboard.category_edit', [
+            'category' => Category::whereId($categoryId)->first()
         ]);
     }
 }

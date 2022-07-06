@@ -11,6 +11,7 @@
         <li class=""><a href="/dashboard/pages"><i class="fa fa-list fa-fw" aria-hidden="true"></i> Pages</a></li>
         <li class=""><a href="/dashboard/post/add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add new post</a></li>
         <li class=""><a href="/dashboard/page/add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add new page</a></li>
+        <li class=""><a href="/dashboard/categories"><i class="fa fa-link fa-fw" aria-hidden="true"></i> Categories</a></li>
         <li class=""><a href="/dashboard/navigation"><i class="fa fa-link fa-fw" aria-hidden="true"></i> Navigation</a></li>
         <li class=""><a href="/dashboard/settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> Settings</a></li>
         <li class=""><a href="/dashboard/comments"><i class="fa fa-comments fa-fw" aria-hidden="true"></i> Comments</a></li>

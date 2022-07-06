@@ -4,8 +4,11 @@
 
 @section('content')
 
-    <h2><a href="{{ $post->slug }}">{{ $post->title }}</a></h2>
+    <h2>{{ $post->title }}</h2>
     <time>{{ $post->published_at }}</time>
+    <a href="/category/{{ $post->category->slug }}">
+        {{ $post->category->name }}
+    </a>
     <div>{!! $post->content !!}</div>
 
 @endsection

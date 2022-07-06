@@ -33,6 +33,14 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="infobox">
+            <div class="infobox-inner">
+              <p>{{ $categories_number }}</p>
+              <h3>Categories number</h3>
+            </div>
+          </div>
+        </li>
         <!-- <li>
           <div class="infobox">
             <div class="infobox-inner">

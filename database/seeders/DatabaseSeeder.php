@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use \App\Models\User;
 use \App\Models\Post;
 use \App\Models\Page;
+use \App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,9 +37,25 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        Category::create([
+            'name' => 'Personal',
+            'slug' => 'personal',
+        ]);
+
+        Category::create([
+            'name' => 'Family',
+            'slug' => 'family',
+        ]);
+
+        Category::create([
+            'name' => 'Programming',
+            'slug' => 'programming',
+        ]);
+
+
         Post::create([
             'user_id' => $user->id,
-            'category_id' => 1,
+            'category_id' => 3,
             'title' => 'Mastering Laravel',
             'slug' => 'mastering-laravel',
             'excerpt' => 'Lorem ipsum dolor sit amet.',
@@ -57,7 +74,7 @@ class DatabaseSeeder extends Seeder
 
         Post::create([
             'user_id' => $user->id,
-            'category_id' => 1,
+            'category_id' => 3,
             'title' => 'Git crash course',
             'slug' => 'git-crash-course',
             'excerpt' => 'Lorem ipsum dolor sit amet.',
@@ -67,7 +84,7 @@ class DatabaseSeeder extends Seeder
 
         Post::create([
             'user_id' => $user->id,
-            'category_id' => 1,
+            'category_id' => 3,
             'title' => 'GTK4 application tutorial',
             'slug' => 'GTK4-application-tutorial',
             'excerpt' => 'Lorem ipsum dolor sit amet.',

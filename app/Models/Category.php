@@ -5,21 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Category extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
+        'name',
         'slug',
-        'excerpt',
-        'content',
-        'user_id',
-        'category_id',
     ];
 
-    public function category()
+    public function posts()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Post::class)
+            ->whereNotNull('published_at')
+            ->orderByDesc('published_at');
     }
 }
