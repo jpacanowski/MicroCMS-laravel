@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->foreignId('user_id')->nullable(false)->unsigned();
+            $table->integer('visits_count')->unsigned()->default(0);
+            $table->enum('status', ['PUBLISHED', 'DRAFT']);
+            $table->string('title')->nullable(false);
+            $table->string('slug')->nullable(false)->unique();
+            $table->string('tags')->nullable(false);
+            $table->text('content')->nullable(false);
             $table->timestamps();
         });
     }

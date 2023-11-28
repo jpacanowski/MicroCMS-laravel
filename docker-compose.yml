@@ -29,7 +29,7 @@ services:
 
   # Application Service
   app:
-    container_name: blog
+    container_name: cms-laravel
     build:
       context: ./php
       dockerfile: Dockerfile
