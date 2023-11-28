@@ -1,0 +1,28 @@
+body {
+    font-family: monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    width: 800px;
+    margin: 80px auto;
+}
+
+.posts {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.posts__heading {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.posts__date {
+    color: #777;
+}
