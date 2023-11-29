@@ -1,6 +1,6 @@
 @extends('posts.base')
 
-@section('title', '- '.$post->title)
+@section('title', $post->title)
 
 @section('content')
   <main class="wrapper">
