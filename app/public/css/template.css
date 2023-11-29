@@ -7,7 +7,7 @@ a {
 }
 
 .wrapper {
-    width: 800px;
+    width: 900px;
     margin: 80px auto;
 }
 
@@ -25,4 +25,18 @@ a {
 
 .posts__date {
     color: #777;
+}
+
+.post__heading {
+    font-size: 36px;
+}
+
+.post__date {
+    display: block;
+    margin: 0;
+}
+
+.post__content {
+    font-size: 16px;
+    color: #333;
 }

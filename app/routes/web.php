@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// All posts
+// Show all posts
 Route::get('/', [PostsController::class, 'index']);
+
+// Show single post
+Route::get('/{post:slug}', [PostsController::class, 'show']);
