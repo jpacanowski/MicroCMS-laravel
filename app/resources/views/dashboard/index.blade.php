@@ -27,7 +27,7 @@
       <li>
         <div class="infobox">
           <div class="infobox-inner">
-            <p><!--{ '$pages_number' }}--></p>
+            <p>{{ $pages_number }}</p>
             <h3>Pages number</h3>
           </div>
         </div>
@@ -51,7 +51,7 @@
       <li>
         <div class="infobox">
           <div class="infobox-inner">
-            <p><!--{{ '$users_number' }}--></p>
+            <p>{{ $users_number }}</p>
             <h3>Users number</h3>
           </div>
         </div>
