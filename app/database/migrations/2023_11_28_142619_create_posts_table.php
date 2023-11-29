@@ -15,11 +15,12 @@ return new class extends Migration
             $table->increments('id');
             $table->foreignId('user_id')->nullable(false)->unsigned();
             $table->integer('visits_count')->unsigned()->default(0);
-            $table->enum('status', ['PUBLISHED', 'DRAFT']);
+            $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
             $table->string('title')->nullable(false);
             $table->string('slug')->nullable(false)->unique();
             $table->string('tags')->nullable(false);
             $table->text('content')->nullable(false);
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

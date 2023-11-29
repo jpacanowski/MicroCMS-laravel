@@ -11,7 +11,7 @@ class PostsController extends Controller
     // Show all posts
     public function index() {
         return view('posts.index', [
-            'posts' => Post::latest()->get()
+            'posts' => Post::whereStatus('PUBLISHED')->latest()->get()
         ]);
     }
 

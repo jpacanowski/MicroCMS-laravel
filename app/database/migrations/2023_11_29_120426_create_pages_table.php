@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->integer('visits_count')->unsigned()->default(0);
-            $table->enum('status', ['PUBLISHED', 'DRAFT']);
+            $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
             $table->string('title')->nullable(false);
             $table->string('slug')->nullable(false)->unique();
             $table->text('content');
