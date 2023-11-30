@@ -15,6 +15,26 @@ class PagesController extends Controller
         ]);
     }
 
+    // Show form to add page
+    public function create() {
+        return view('pages.create');
+    }
+
+    // Store page data
+    public function store(Request $request) {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        $formFields['slug'] = Str::slug($formFields['title'], '-');
+
+        $page = Page::create($formFields);
+
+        return redirect()->route('pages.edit', $page)
+            ->with('info', 'Page has been created successfully');
+    }
+
     // Show form to edit page
     public function edit(Page $page) {
         return view('pages.edit', [

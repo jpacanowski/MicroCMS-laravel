@@ -29,10 +29,13 @@ Route::get('/dashboard/pages', [AdminController::class, 'pages'])->name('dashboa
 Route::get('/dashboard/post/edit/{post:id}', [PostsController::class, 'edit'])->name('posts.edit');
 
 // Admin panel - form to edit page
-Route::get('/dashboard/page/edit/{page:id}', [PagesController::class, 'edit']);
+Route::get('/dashboard/page/edit/{page:id}', [PagesController::class, 'edit'])->name('pages.edit');
 
 // Admin panel - add new post
 Route::get('/dashboard/post/create', [PostsController::class, 'create'])->name('dashboard.post.create');
+
+// Admin panel - add new page
+Route::get('/dashboard/page/create', [PagesController::class, 'create'])->name('dashboard.page.create');
 
 
 // Show all posts
@@ -53,6 +56,9 @@ Route::delete('/posts/{post}', [PostsController::class, 'destroy']);
 
 // Show single page
 Route::get('/page/{page:slug}', [PagesController::class, 'show']);
+
+// Store page data
+Route::post('/pages', [PagesController::class, 'store']);
 
 // Update page
 Route::put('/pages/{page}', [PagesController::class, 'update']);
