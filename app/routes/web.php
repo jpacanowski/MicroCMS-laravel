@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,11 +32,20 @@ Route::get('/dashboard/post/edit/{post:id}', [PostsController::class, 'edit'])->
 // Admin panel - form to edit page
 Route::get('/dashboard/page/edit/{page:id}', [PagesController::class, 'edit'])->name('pages.edit');
 
-// Admin panel - add new post
+// Admin panel - form to create new post
 Route::get('/dashboard/post/create', [PostsController::class, 'create'])->name('dashboard.post.create');
 
-// Admin panel - add new page
+// Admin panel - form to create new page
 Route::get('/dashboard/page/create', [PagesController::class, 'create'])->name('dashboard.page.create');
+
+// Admin panel - users
+Route::get('/dashboard/users', [AdminController::class, 'users'])->name('dashboard.users');
+
+// Admin panel - form to create new user
+Route::get('/dashboard/users/create', [UsersController::class, 'create'])->name('users.create');
+
+// Admin panel - form to edit user
+Route::get('/dashboard/users/edit/{user:id}', [UsersController::class, 'edit'])->name('users.edit');
 
 
 // Show all posts
@@ -65,3 +75,13 @@ Route::put('/pages/{page}', [PagesController::class, 'update']);
 
 // Delete page
 Route::delete('/pages/{page}', [PagesController::class, 'destroy']);
+
+
+// Store user data
+Route::post('/users', [UsersController::class, 'store']);
+
+// Update user
+Route::put('/users/{user}', [UsersController::class, 'update']);
+
+// Delete user
+Route::delete('/users/{user}', [UsersController::class, 'destroy']);

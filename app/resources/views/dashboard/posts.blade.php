@@ -55,7 +55,7 @@
       <div class="alert-success">No posts found</div>
     @endunless
 
-    <a class="button" href="/dashboard/post/add">Add new post</a>
+    <a class="button" href="/dashboard/post/create">Add new post</a>
 
   </main>
 @endsection

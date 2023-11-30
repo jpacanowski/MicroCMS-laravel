@@ -55,7 +55,7 @@
       <div class="alert-success">No pages found</div>
     @endunless
 
-    <a class="button" href="/dashboard/page/add">Add new page</a>
+    <a class="button" href="/dashboard/page/create">Add new page</a>
 
   </main>
 @endsection

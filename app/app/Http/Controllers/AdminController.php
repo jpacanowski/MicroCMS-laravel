@@ -32,4 +32,11 @@ class AdminController extends Controller
             'pages' => Page::orderBy('title')->get()
         ]);
     }
+
+    // Admin panel - show users
+    public function users() {
+        return view('dashboard.users', [
+            'users' => User::all()
+        ]);
+    }
 }
