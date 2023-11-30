@@ -22,6 +22,27 @@ class PostsController extends Controller
         ]);
     }
 
+    // Show form to add post
+    public function create() {
+        return view('posts.create');
+    }
+
+    // Store post data
+    public function store(Request $request) {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        $formFields['user_id'] = 1;
+        $formFields['slug'] = Str::slug($formFields['title'], '-');
+
+        $post = Post::create($formFields);
+
+        return redirect()->route('posts.edit', $post)
+            ->with('info', 'Post has been created successfully');
+    }
+
     // Show form to edit post
     public function edit(Post $post) {
         return view('posts.edit', [

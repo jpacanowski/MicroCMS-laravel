@@ -8,8 +8,8 @@
         <!-- <li class=""><a href="/dashboard/profile"><i class="fa fa-user fa-fw" aria-hidden="true"></i> My profile</a></li> -->
         <li class="{{ Route::is('dashboard.posts') ? 'active' : '' }}"><a href="/dashboard/posts"><i class="fa fa-list fa-fw" aria-hidden="true"></i> Posts</a></li>
         <li class="{{ Route::is('dashboard.pages') ? 'active' : '' }}"><a href="/dashboard/pages"><i class="fa fa-list fa-fw" aria-hidden="true"></i> Pages</a></li>
-        <li class="{{ Route::is('dashboard.post.add') ? 'active' : '' }}"><a href="/dashboard/post/add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add new post</a></li>
-        <li class="{{ Route::is('dashboard.page.add') ? 'active' : '' }}"><a href="/dashboard/page/add"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add new page</a></li>
+        <li class="{{ Route::is('dashboard.post.create') ? 'active' : '' }}"><a href="/dashboard/post/create"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add new post</a></li>
+        <li class="{{ Route::is('dashboard.page.create') ? 'active' : '' }}"><a href="/dashboard/page/create"><i class="fa fa-plus fa-fw" aria-hidden="true"></i> Add new page</a></li>
         <!-- <li class="{{ Route::is('dashboard.categories') ? 'active' : '' }}"><a href="/dashboard/categories"><i class="fa fa-link fa-fw" aria-hidden="true"></i> Categories</a></li> -->
         <!-- <li class="{{ Route::is('dashboard.navigation') ? 'active' : '' }}"><a href="/dashboard/navigation"><i class="fa fa-link fa-fw" aria-hidden="true"></i> Navigation</a></li> -->
         <li class="{{ Route::is('dashboard.settings') ? 'active' : '' }}"><a href="/dashboard/settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> Settings</a></li>
