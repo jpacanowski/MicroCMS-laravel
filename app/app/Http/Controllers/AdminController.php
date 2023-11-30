@@ -25,4 +25,11 @@ class AdminController extends Controller
             'posts' => Post::orderBy('title')->get()
         ]);
     }
+
+    // Admin panel - show pages
+    public function pages() {
+        return view('dashboard.pages', [
+            'pages' => Page::orderBy('title')->get()
+        ]);
+    }
 }
