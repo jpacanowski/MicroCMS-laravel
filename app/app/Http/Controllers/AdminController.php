@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Page;
 use App\Models\User;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -37,6 +38,13 @@ class AdminController extends Controller
     public function users() {
         return view('dashboard.users', [
             'users' => User::all()
+        ]);
+    }
+
+    // Admin panel - settings
+    public function settings() {
+        return view('dashboard.settings', [
+            'settings' => Settings::first()
         ]);
     }
 

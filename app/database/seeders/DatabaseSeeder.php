@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Post;
 use App\Models\Page;
 use App\Models\User;
+use App\Models\Settings;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +18,16 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Post::truncate();
         Page::truncate();
+        Settings::truncate();
+
+        Settings::create([
+            'site_title' => 'World of Unix',
+            'site_tagline' => 'Think Different',
+            'site_description' => 'Yet another site about BSD',
+            'site_keywords' => 'unix, freebsd, openbsd, linux',
+            'site_url' => 'https://jpacanowski.io',
+            'posts_per_page' => '10'
+        ]);
 
         $user1 = User::create([
             'name' => 'jpacanowski',
