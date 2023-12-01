@@ -39,4 +39,9 @@ class AdminController extends Controller
             'users' => User::all()
         ]);
     }
+
+    // Admin panel - about CMS
+    public function about() {
+        return view('dashboard.about');
+    }
 }

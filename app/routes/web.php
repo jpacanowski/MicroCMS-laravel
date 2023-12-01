@@ -47,6 +47,9 @@ Route::get('/dashboard/users/create', [UsersController::class, 'create'])->name(
 // Admin panel - form to edit user
 Route::get('/dashboard/users/edit/{user:id}', [UsersController::class, 'edit'])->name('users.edit');
 
+// Admin panel - about CMS
+Route::get('/dashboard/about', [AdminController::class, 'about'])->name('dashboard.about');
+
 
 // Show all posts
 Route::get('/', [PostsController::class, 'index']);
