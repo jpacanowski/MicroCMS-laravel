@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Post;
 use App\Models\Page;
 use App\Models\User;
+use App\Models\Comment;
 use App\Models\Settings;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Post::truncate();
         Page::truncate();
+        Comment::truncate();
         Settings::truncate();
 
         Settings::create([
@@ -92,6 +94,28 @@ class DatabaseSeeder extends Seeder
             'slug' => 'resources',
             'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat blandit aliquam etiam erat. Nulla porttitor massa id neque aliquam vestibulum morbi blandit.</p> <p>Nibh sit amet commodo nulla facilisi nullam vehicula ipsum a. Sit amet consectetur adipiscing elit. Pharetra sit amet aliquam id diam maecenas ultricies. Velit scelerisque in dictum non.</p> <p>Diam quis enim lobortis scelerisque fermentum. Vitae et leo duis ut. Massa sed elementum tempus egestas sed sed risus. Non blandit massa enim nec. Id aliquet lectus proin nibh nisl. Consequat mauris nunc congue nisi. Vulputate eu scelerisque felis imperdiet proin fermentum leo. Est sit amet facilisis magna.</p>',
             'created_at' => '2022-11-28 16:29:05'
+        ]);
+
+
+        Comment::create([
+            'post_id' => 1,
+            'user_id' => $user1->id,
+            'content' => 'Lorem ipsum dolor sit amet sunt in culpa qui officia deserunt mollit.',
+            'created_at' => '2020-11-28 16:29:05'
+        ]);
+
+        Comment::create([
+            'post_id' => 1,
+            'user_id' => $user1->id,
+            'content' => 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            'created_at' => '2023-11-28 16:29:05'
+        ]);
+
+        Comment::create([
+            'post_id' => 1,
+            'user_id' => $user2->id,
+            'content' => 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.',
+            'created_at' => '2021-11-28 16:29:05'
         ]);
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +52,12 @@ Route::get('/dashboard/users/edit/{user:id}', [UsersController::class, 'edit'])-
 // Admin panel - settings
 Route::get('/dashboard/settings', [AdminController::class, 'settings'])->name('dashboard.settings');
 
+// Admin panel - comments
+Route::get('/dashboard/comments', [AdminController::class, 'comments'])->name('dashboard.comments');
+
+// Admin panel - form to edit comment
+Route::get('/dashboard/comment/edit/{comment:id}', [CommentsController::class, 'edit']);
+
 // Admin panel - about CMS
 Route::get('/dashboard/about', [AdminController::class, 'about'])->name('dashboard.about');
 
@@ -92,6 +99,16 @@ Route::put('/users/{user}', [UsersController::class, 'update']);
 
 // Delete user
 Route::delete('/users/{user}', [UsersController::class, 'destroy']);
+
+
+// Update comment
+Route::put('/comment/update/{comment:id}', [CommentsController::class, 'update']);
+
+// Approve comment
+Route::put('/comment/approve/{comment:id}', [CommentsController::class, 'approve']);
+
+// Delete comment
+Route::delete('/comment/delete/{comment:id}', [CommentsController::class, 'destroy']);
 
 
 // Update settings

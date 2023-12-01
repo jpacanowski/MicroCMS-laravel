@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Page;
 use App\Models\User;
+use App\Models\Comment;
 use App\Models\Settings;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class AdminController extends Controller
             'posts_number' => Post::count(),
             'pages_number' => Page::count(),
             'users_number' => User::count(),
+            'comments_number' => Comment::count(),
             'php_version' => phpversion()
         ]);
     }
@@ -45,6 +47,13 @@ class AdminController extends Controller
     public function settings() {
         return view('dashboard.settings', [
             'settings' => Settings::first()
+        ]);
+    }
+
+    // Admin panel - comments
+    public function comments() {
+        return view('dashboard.comments', [
+            'comments' => Comment::latest()->get()
         ]);
     }
 

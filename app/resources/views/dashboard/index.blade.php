@@ -40,14 +40,14 @@
           </div>
         </div>
       </li> -->
-      <!-- <li>
+      <li>
         <div class="infobox">
           <div class="infobox-inner">
-            <p>{{ 'comments_number' }}</p>
+            <p>{{ $comments_number }}</p>
             <h3>Comments number</h3>
           </div>
         </div>
-      </li> -->
+      </li>
       <li>
         <div class="infobox">
           <div class="infobox-inner">
