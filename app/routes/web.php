@@ -19,47 +19,50 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Admin panel
-Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+Route::prefix('dashboard')->group(function () {
 
-// Admin panel - posts
-Route::get('/dashboard/posts', [AdminController::class, 'posts'])->name('dashboard.posts');
+    // Admin panel
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
-// Admin panel - pages
-Route::get('/dashboard/pages', [AdminController::class, 'pages'])->name('dashboard.pages');
+    // Admin panel - posts
+    Route::get('/posts', [AdminController::class, 'posts'])->name('dashboard.posts');
 
-// Admin panel - form to edit post
-Route::get('/dashboard/post/edit/{post:id}', [PostsController::class, 'edit'])->name('posts.edit');
+    // Admin panel - pages
+    Route::get('/pages', [AdminController::class, 'pages'])->name('dashboard.pages');
 
-// Admin panel - form to edit page
-Route::get('/dashboard/page/edit/{page:id}', [PagesController::class, 'edit'])->name('pages.edit');
+    // Admin panel - form to edit post
+    Route::get('/post/edit/{post:id}', [PostsController::class, 'edit'])->name('posts.edit');
 
-// Admin panel - form to create new post
-Route::get('/dashboard/post/create', [PostsController::class, 'create'])->name('dashboard.post.create');
+    // Admin panel - form to edit page
+    Route::get('/page/edit/{page:id}', [PagesController::class, 'edit'])->name('pages.edit');
 
-// Admin panel - form to create new page
-Route::get('/dashboard/page/create', [PagesController::class, 'create'])->name('dashboard.page.create');
+    // Admin panel - form to create new post
+    Route::get('/post/create', [PostsController::class, 'create'])->name('dashboard.post.create');
 
-// Admin panel - users
-Route::get('/dashboard/users', [AdminController::class, 'users'])->name('dashboard.users');
+    // Admin panel - form to create new page
+    Route::get('/page/create', [PagesController::class, 'create'])->name('dashboard.page.create');
 
-// Admin panel - form to create new user
-Route::get('/dashboard/users/create', [UsersController::class, 'create'])->name('users.create');
+    // Admin panel - users
+    Route::get('/users', [AdminController::class, 'users'])->name('dashboard.users');
 
-// Admin panel - form to edit user
-Route::get('/dashboard/users/edit/{user:id}', [UsersController::class, 'edit'])->name('users.edit');
+    // Admin panel - form to create new user
+    Route::get('/users/create', [UsersController::class, 'create'])->name('users.create');
 
-// Admin panel - settings
-Route::get('/dashboard/settings', [AdminController::class, 'settings'])->name('dashboard.settings');
+    // Admin panel - form to edit user
+    Route::get('/users/edit/{user:id}', [UsersController::class, 'edit'])->name('users.edit');
 
-// Admin panel - comments
-Route::get('/dashboard/comments', [AdminController::class, 'comments'])->name('dashboard.comments');
+    // Admin panel - settings
+    Route::get('/settings', [AdminController::class, 'settings'])->name('dashboard.settings');
 
-// Admin panel - form to edit comment
-Route::get('/dashboard/comment/edit/{comment:id}', [CommentsController::class, 'edit']);
+    // Admin panel - comments
+    Route::get('/comments', [AdminController::class, 'comments'])->name('dashboard.comments');
 
-// Admin panel - about CMS
-Route::get('/dashboard/about', [AdminController::class, 'about'])->name('dashboard.about');
+    // Admin panel - form to edit comment
+    Route::get('/comment/edit/{comment:id}', [CommentsController::class, 'edit']);
+
+    // Admin panel - about CMS
+    Route::get('/about', [AdminController::class, 'about'])->name('dashboard.about');
+});
 
 
 // Show all posts
@@ -101,14 +104,17 @@ Route::put('/users/{user}', [UsersController::class, 'update']);
 Route::delete('/users/{user}', [UsersController::class, 'destroy']);
 
 
-// Update comment
-Route::put('/comment/update/{comment:id}', [CommentsController::class, 'update']);
+Route::prefix('comment')->group(function () {
 
-// Approve comment
-Route::put('/comment/approve/{comment:id}', [CommentsController::class, 'approve']);
+    // Update comment
+    Route::put('/update/{comment:id}', [CommentsController::class, 'update']);
 
-// Delete comment
-Route::delete('/comment/delete/{comment:id}', [CommentsController::class, 'destroy']);
+    // Approve comment
+    Route::put('/approve/{comment:id}', [CommentsController::class, 'approve']);
+
+    // Delete comment
+    Route::delete('/delete/{comment:id}', [CommentsController::class, 'destroy']);
+});
 
 
 // Update settings

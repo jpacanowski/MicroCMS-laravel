@@ -9,9 +9,7 @@ class CommentsController extends Controller
 {
     // Edit comment
     public function edit(Comment $comment) {
-        return view('comments.edit', [
-            'comment' => $comment
-        ]);
+        return view('comments.edit', ['comment' => $comment]);
     }
 
     // Update comment
