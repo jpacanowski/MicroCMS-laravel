@@ -125,6 +125,17 @@ a:focus {
 	color: #f6f6f6;
 }
 
+.main-header .btn_logout {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    font-family: inherit;
+    font-size: inherit;
+}
+
 .menubar ul li ul {
 	display: none;
 	position: absolute;

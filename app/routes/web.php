@@ -19,10 +19,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('dashboard')->group(function () {
+Route::prefix('users')->group(function () {
+
+    // Login form
+    Route::get('/login', [UsersController::class, 'login'])->name('login')->middleware('guest');
+
+    // Logout user
+    Route::post('/logout', [UsersController::class, 'logout'])->name('logout')->middleware('auth');
+
+    // Log in user
+    Route::post('/authenticate', [UsersController::class, 'authenticate']);
+});
+
+
+Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // Admin panel
-    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard.index');
 
     // Admin panel - posts
     Route::get('/posts', [AdminController::class, 'posts'])->name('dashboard.posts');

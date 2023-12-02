@@ -4,10 +4,16 @@
   <header class="main-header">
     <h1>Micro<span>CMS</span></h1>
     <nav>
-      {{ 'getUsername()' }}
-      <a href="{{ 'settings.site_url' }}/"><i class="fa fa-home" aria-hidden="true"></i></a>
-      <a href="{{ 'settings.site_url' }}/dashboard/profile"><i class="fa fa-user" aria-hidden="true"></i></a>
-      <a href="{{ 'settings.site_url' }}/users/logout"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+      {{ Auth::user()->name }}
+      <a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
+      <a href="/dashboard/profile"><i class="fa fa-user" aria-hidden="true"></i></a>
+      <form method="POST" action="/users/logout" style="display: inline">
+        @csrf
+        @method('POST')
+        <button type="submit" class="btn_logout">
+          <i class="fa fa-power-off" aria-hidden="true"></i>
+        </button>
+      </form>
     </nav>
   </header>
 @endsection

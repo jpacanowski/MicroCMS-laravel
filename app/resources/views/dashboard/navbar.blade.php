@@ -4,7 +4,7 @@
   <aside class="main-sidebar">
     <nav>
       <ul>
-        <li class="{{ Route::is('dashboard') ? 'active' : '' }}"><a href="/dashboard"><i class="fa fa-dashboard fa-fw" aria-hidden="true"></i> Dashboard</a></li>
+        <li class="{{ Route::is('dashboard.index') ? 'active' : '' }}"><a href="/dashboard"><i class="fa fa-dashboard fa-fw" aria-hidden="true"></i> Dashboard</a></li>
         <!-- <li class=""><a href="/dashboard/profile"><i class="fa fa-user fa-fw" aria-hidden="true"></i> My profile</a></li> -->
         <li class="{{ Route::is('dashboard.posts') ? 'active' : '' }}"><a href="/dashboard/posts"><i class="fa fa-list fa-fw" aria-hidden="true"></i> Posts</a></li>
         <li class="{{ Route::is('dashboard.pages') ? 'active' : '' }}"><a href="/dashboard/pages"><i class="fa fa-list fa-fw" aria-hidden="true"></i> Pages</a></li>

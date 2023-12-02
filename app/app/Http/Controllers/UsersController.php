@@ -7,6 +7,37 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    // Show login form
+    public function login() {
+        return view('users.login');
+    }
+
+    // Logout User
+    public function logout(Request $request) {
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return back()->with('info', 'You have been logged out');
+
+    }
+
+    // Authenticate user
+    public function authenticate(Request $request) {
+        $formFields = $request->validate([
+            'name' => 'required',
+            'password' => 'required'
+        ]);
+
+        if(auth()->attempt($formFields)) {
+            $request->session()->regenerate();
+            return redirect()->route('dashboard.index');
+        }
+
+        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+    }
+
     // Show form to create user
     public function create() {
         return view('users.create');
