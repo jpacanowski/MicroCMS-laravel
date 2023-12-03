@@ -75,6 +75,9 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     // Admin panel - about CMS
     Route::get('/about', [AdminController::class, 'about'])->name('dashboard.about');
+
+    // Admin panel - profile
+    Route::get('/profile', [UsersController::class, 'profile'])->name('users.profile');
 });
 
 

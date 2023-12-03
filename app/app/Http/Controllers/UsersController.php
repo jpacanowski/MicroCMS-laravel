@@ -68,6 +68,9 @@ class UsersController extends Controller
     public function update(Request $request, User $user) {
         $formFields = $request->validate([
             'name' => 'required',
+            'firstname' => '',
+            'lastname' => '',
+            'bio' => '',
             'email' => 'required|email'
         ]);
 
@@ -79,5 +82,12 @@ class UsersController extends Controller
     public function destroy(User $user) {
         $user->delete();
         return back()->with('info', 'User has been deleted successfully');
+    }
+
+    // user profile
+    public function profile() {
+        return view('users.profile', [
+            'user' => User::find(auth()->user()->id)
+        ]);
     }
 }
