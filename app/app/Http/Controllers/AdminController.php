@@ -24,9 +24,16 @@ class AdminController extends Controller
 
     // Admin panel - show posts
     public function posts() {
-        return view('dashboard.posts', [
-            'posts' => Post::orderBy('title')->get()
-        ]);
+        if(auth()->user()->role == 'ADMIN') {
+            return view('dashboard.posts', [
+                'posts' => Post::orderBy('title')->get()
+            ]);
+        }
+        else if(auth()->user()->role == 'USER') {
+            return view('dashboard.posts', [
+                'posts' => auth()->user()->posts
+            ]);
+        }
     }
 
     // Admin panel - show pages

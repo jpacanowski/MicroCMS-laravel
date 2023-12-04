@@ -47,8 +47,12 @@ class UsersController extends Controller
     public function store(Request $request) {
         $formFields = $request->validate([
             'name' => 'required|min:3',
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:6'
+            'password' => 'required|confirmed|min:6',
+            'role' => 'required',
+            'bio' => ''
         ]);
 
         $user = User::create($formFields);
@@ -71,7 +75,8 @@ class UsersController extends Controller
             'firstname' => '',
             'lastname' => '',
             'bio' => '',
-            'email' => 'required|email'
+            'email' => 'required|email',
+            'role' => ''
         ]);
 
         $user->update($formFields);

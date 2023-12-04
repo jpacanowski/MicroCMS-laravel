@@ -10,6 +10,7 @@ class PagesController extends Controller
 {
     // Show single page
     public function show(Page $page) {
+        $page->increment('visits_count');
         return view('pages.single', [
             'page' => $page
         ]);

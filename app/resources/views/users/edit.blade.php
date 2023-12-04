@@ -39,11 +39,11 @@
       <!-- <label for="password">E-mail:</label>
       <input id="password" name="password" type="password" class="form-control" value="{{ $user->password }}" /> -->
 
-      <!-- <label for="role">User role:</label>
+      <label for="role">User role:</label>
       <select id="role" name="role" class="form-control">
-        <option value="0" {{ $user->role == 0 ? 'selected' : '' }}>User</option>
-        <option value="1" {{ $user->role == 1 ? 'selected' : '' }}>Admin</option>
-      </select> -->
+        <option value="USER" {{ $user->role == 'USER' ? 'selected' : '' }}>User</option>
+        <option value="ADMIN" {{ $user->role == 'ADMIN' ? 'selected' : '' }}>Admin</option>
+      </select>
 
       <input type="submit" value="Save changes" />
 

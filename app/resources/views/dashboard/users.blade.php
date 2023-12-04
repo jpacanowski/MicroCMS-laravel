@@ -25,10 +25,10 @@
           <th scope="col">Username</th>
           <!-- <th scope="col">Full name</th> -->
           <th scope="col">E-mail</th>
-          <!-- <th scope="col">Role</th> -->
+          <th scope="col">Role</th>
           <!-- <th scope="col">Last activity</th> -->
+          <th scope="col">Posts</th>
           <th scope="col">Actions</th>
-          <!-- <th scope="col">Posts</th> -->
         </tr>
       </thead>
       <tbody>
@@ -37,8 +37,9 @@
             <td>{{ $user->name }}</td>
             <!-- <td>{{ $user->firstname }} {{ $user->lastname }}</td> -->
             <td>{{ $user->email }}</td>
-            <!-- <td>{{ $user->role ? 'ADMIN' : 'USER' }}</td> -->
+            <td>{{ $user->role }}</td>
             <!-- <td>{{ $user->last_activity }}</td> -->
+            <td>{{ $user->posts->count() }}</td>
             <td>
               <a href="/dashboard/users/edit/{{$user->id}}" class="btn-edit1">Edit</a>
               <form class="form_delete" style="display:inline;" method="POST" action="/users/{{$user->id}}">
@@ -48,7 +49,6 @@
               </form>
             </td>
             <!-- <td>{{ '30 mins ago' }}</td> -->
-            <!-- <td>{{ '0' }}</td> -->
           </tr>
         @endforeach
       </tbody>

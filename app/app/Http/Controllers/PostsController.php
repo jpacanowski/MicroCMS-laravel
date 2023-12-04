@@ -17,6 +17,7 @@ class PostsController extends Controller
 
     // Show single post
     public function show(Post $post) {
+        $post->increment('visits_count');
         return view('posts.single', [
             'post' => $post
         ]);
@@ -34,7 +35,7 @@ class PostsController extends Controller
             'content' => 'required'
         ]);
 
-        $formFields['user_id'] = 1;
+        $formFields['user_id'] = auth()->user()->id;
         $formFields['slug'] = Str::slug($formFields['title'], '-');
 
         $post = Post::create($formFields);
