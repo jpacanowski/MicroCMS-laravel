@@ -27,6 +27,12 @@
       <label for="page_title">Page title:</label>
       <input id="page_title" name="title" type="text" value="{{ $page->title }}" />
 
+      <label for="page_status">Post status:</label>
+      <select id="page_status" name="status" class="form-control">
+        <option value="PUBLISHED" {{ $page->status == 'PUBLISHED' ? 'selected' : '' }}>PUBLISHED</option>
+        <option value="DRAFT" {{ $page->status == 'DRAFT' ? 'selected' : '' }}>DRAFT</option>
+      </select>
+
       <label for="page_content">Page content:</label>
       <textarea id="page_content" name="content">{{ $page->content }}</textarea>
 

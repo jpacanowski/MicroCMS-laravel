@@ -27,6 +27,12 @@
       <label for="post_title">Post title:</label>
       <input id="post_title" name="title" type="text" value="{{ $post->title }}" />
 
+      <label for="post_status">Post status:</label>
+      <select id="post_status" name="status" class="form-control">
+        <option value="PUBLISHED" {{ $post->status == 'PUBLISHED' ? 'selected' : '' }}>PUBLISHED</option>
+        <option value="DRAFT" {{ $post->status == 'DRAFT' ? 'selected' : '' }}>DRAFT</option>
+      </select>
+
       <label for="post_content">Post content:</label>
       <textarea id="post_content" name="content">{{ $post->content }}</textarea>
 

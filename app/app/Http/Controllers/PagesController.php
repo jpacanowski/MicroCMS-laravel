@@ -25,7 +25,8 @@ class PagesController extends Controller
     public function store(Request $request) {
         $formFields = $request->validate([
             'title' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'status' => 'required'
         ]);
 
         $formFields['slug'] = Str::slug($formFields['title'], '-');
@@ -47,7 +48,8 @@ class PagesController extends Controller
     public function update(Request $request, Page $page) {
         $formFields = $request->validate([
             'title' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'status' => 'required'
         ]);
 
         $formFields['slug'] = Str::slug($formFields['title'], '-');

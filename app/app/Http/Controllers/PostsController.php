@@ -32,6 +32,7 @@ class PostsController extends Controller
     public function store(Request $request) {
         $formFields = $request->validate([
             'title' => 'required',
+            'status' => 'required',
             'content' => 'required'
         ]);
 
@@ -55,6 +56,7 @@ class PostsController extends Controller
     public function update(Request $request, Post $post) {
         $formFields = $request->validate([
             'title' => 'required',
+            'status' => 'required',
             'content' => 'required'
         ]);
 
