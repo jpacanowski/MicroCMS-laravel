@@ -41,7 +41,8 @@
 
       <label for="role">User role:</label>
       <select id="role" name="role" class="form-control">
-        <option value="USER" {{ $user->role == 'USER' ? 'selected' : '' }}>User</option>
+        <option value="READER" {{ $user->role == 'READER' ? 'selected' : '' }}>Reader</option>
+        <option value="AUTHOR" {{ $user->role == 'AUTHOR' ? 'selected' : '' }}>Author</option>
         <option value="ADMIN" {{ $user->role == 'ADMIN' ? 'selected' : '' }}>Admin</option>
       </select>
 

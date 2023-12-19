@@ -43,25 +43,29 @@
           </ul>
         </section>
 
-        <section class="">
-          <h4 class="visually-hidden">Add comment</h4>
-          <form class="form" action="." method="POST">
+        @if (Auth::check())
+          <section class="">
+            <h4 class="visually-hidden">Add comment</h4>
+            <form class="form" action="/comment/{{$post->id}}" method="POST">
 
-            @csrf
+              @csrf
 
-            <label for="name">Your name *</label>
-            <input id="name" type="text" name="name" required />
+              <!-- <label for="name">Your name *</label>
+              <input id="name" type="text" name="name" required /> -->
 
-            <label for="email">Your e-mail *</label>
-            <input id="email" type="email" name="email" required />
+              <!-- <label for="email">Your e-mail *</label>
+              <input id="email" type="email" name="email" required /> -->
 
-            <label for="body">Your message *</label>
-            <textarea id="body" rows="5" name="body" required></textarea>
+              <label for="comment" class="visually-hidden">Your comment *</label>
+              <textarea id="comment" rows="5" name="content" placeholder="Your comment..." required></textarea>
 
-            <input type="submit" value="Send comment" class="btn" />
+              <input type="submit" value="Send comment" class="btn" />
 
-          </form>
-        </section>
+            </form>
+          </section>
+        @else
+          <a href="/users/login?post={{$post->slug}}">Log in to comment</a>
+        @endif
 
       </footer>
 

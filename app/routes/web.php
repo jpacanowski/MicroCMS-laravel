@@ -82,10 +82,10 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
 
 // Show all posts
-Route::get('/', [PostsController::class, 'index']);
+Route::get('/', [PostsController::class, 'index'])->name('posts.index');
 
 // Show single post
-Route::get('/{post:slug}', [PostsController::class, 'show']);
+Route::get('/{post:slug}', [PostsController::class, 'show'])->name('posts.single');
 
 // Store post data
 Route::post('/posts', [PostsController::class, 'store']);
@@ -121,6 +121,9 @@ Route::delete('/users/{user}', [UsersController::class, 'destroy']);
 
 
 Route::prefix('comment')->group(function () {
+
+    // Store comment
+    Route::post('/{post:id}', [CommentsController::class, 'store']);
 
     // Update comment
     Route::put('/update/{comment:id}', [CommentsController::class, 'update']);

@@ -49,7 +49,14 @@ class DatabaseSeeder extends Seeder
             'bio' => 'React, traveling, cars',
             'email' => 'mattonit@example.com',
             'password' => 'mattonit',
-            'role' => 'USER'
+            'role' => 'AUTHOR'
+        ]);
+
+        $user3 = User::create([
+            'name' => 'falcon030',
+            'email' => 'falcon030@example.com',
+            'password' => 'falcon030',
+            'role' => 'READER'
         ]);
 
 

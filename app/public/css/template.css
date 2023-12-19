@@ -292,16 +292,15 @@ html {
 
 .comment__author {
     font-weight: 600;
-    display: block;
 }
 
 .comment__timedate {
     font-size: 12px;
-    display: block;
+    margin-left: 12px;
 }
 
 .comment__content {
-    margin-top: 14px;
+    margin-top: 4px;
 }
 
 .form {

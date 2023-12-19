@@ -24,9 +24,18 @@
           <label for="password" class="visually-hidden">Password: *</label>
           <input id="password" type="password" name="password" placeholder="Your password" />
 
+          <input type="hidden" id="post" name="post" />
+
           <input type="submit" value="Log in" />
 
         </form>
+
+        <script>
+          const url = window.location.href;
+          const urlParams = new URL(url).searchParams;
+          const post = urlParams.get('post');
+          document.getElementById("post").value = post;
+        </script>
 
       </div>
     </div>

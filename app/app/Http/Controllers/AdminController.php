@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Comment;
 use App\Models\Settings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -29,9 +30,9 @@ class AdminController extends Controller
                 'posts' => Post::orderBy('title')->get()
             ]);
         }
-        else if(auth()->user()->role == 'USER') {
+        else if(auth()->user()->role == 'AUTHOR') {
             return view('dashboard.posts', [
-                'posts' => auth()->user()->posts
+                'posts' => Auth::user()->posts()->orderBy('title')->get()
             ]);
         }
     }

@@ -32,7 +32,18 @@ class UsersController extends Controller
 
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
-            return redirect()->route('dashboard.index');
+
+            if(auth()->user()->role == 'ADMIN' ||
+                auth()->user()->role == 'AUTHOR') {
+                return redirect()->route('dashboard.index');
+            }
+            else if(auth()->user()->role == 'READER') {
+                if(isset($request->post)) {
+                    return redirect()->route('posts.single', request('post'));
+                } else {
+                    return redirect()->route('posts.index');
+                }
+            }
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
