@@ -22,7 +22,10 @@
   </head>
 
     <body>
+      <div class="flex">
+        @yield('sidebar')
         @yield('content')
+      </div>
     </body>
 
 </html>

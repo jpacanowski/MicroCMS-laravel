@@ -19,6 +19,7 @@ class PostsController extends Controller
     public function show(Post $post) {
         $post->increment('visits_count');
         return view('posts.single', [
+            'posts' => Post::whereStatus('PUBLISHED')->latest()->limit(5)->get(),
             'post' => $post
         ]);
     }
