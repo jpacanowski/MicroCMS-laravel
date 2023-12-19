@@ -7,8 +7,8 @@
 @stop
 
 @section('content')
-<main class="mainContent">
-    <div class="wrapper">
+  <main class="mainContent">
+    <article class="wrapper">
 
       <header>
         <h1>{{ $post->title }}</h1>
@@ -28,7 +28,6 @@
       {!! $post->content !!}
 
       <footer>
-
         <section class="post__comments">
           <h4 class="visually-hidden">Comments</h4>
           <ul>
@@ -66,6 +65,6 @@
 
       </footer>
 
-    </div>
+    </article>
   </main>
 @endsection

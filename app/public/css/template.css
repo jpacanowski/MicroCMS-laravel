@@ -169,6 +169,7 @@ html {
 
 .mainContent {
     width: 75%;
+    min-height: 100vh;
     padding: 60px 0;
     background: #fff;
 }
@@ -219,13 +220,14 @@ html {
 }
 
 .postlist__item {
+    font-size: 28px;
     font-weight: 400;
     margin-bottom: 14px;
 }
 
 .postlist__item h2 {
     display: inline-block;
-    font-size: 16px;
+    font-size: 28px;
     font-weight: 400;
     margin: 0;
 }
