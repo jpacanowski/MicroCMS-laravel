@@ -15,7 +15,7 @@
         <h6 class="mainNav_header">Last posts</h6>
         <nav>
           <ul class="mainNav_ul">
-            <li class="mainNav_item"><a href="#">All posts</a></li>
+            <li class="mainNav_item"><a href="/">All posts</a></li>
             @foreach ($posts as $post)
               <li class="mainNav_item">
                 <a href="/{{ $post->slug }}">{{ $post->title }}</a>
