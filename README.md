@@ -23,6 +23,8 @@ This simple CMS provides a solid foundation for building your own website. With 
 - Develop a simple company website with pages about your products, services, and team.
 - Build a personal portfolio website to showcase your work and projects.
 
+## Screenshots
+
 ![](screenshots/2022-06-01_14.45.16.png)
 ![](screenshots/2022-06-01_14.45.46.png)
 ![](screenshots/2022-06-01_14.46.01.png)
