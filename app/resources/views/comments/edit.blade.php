@@ -25,7 +25,7 @@
       @method('PUT')
 
       <label for="comment" class="visually-hidden">Comment:</label>
-      <textarea id="comment" name="comment" type="text" class="form-control" rows="8">{{ $comment->content }}</textarea>
+      <textarea id="comment" name="content" type="text" class="form-control" rows="8">{{ $comment->content }}</textarea>
 
       <input type="submit" value="Save changes" />
 

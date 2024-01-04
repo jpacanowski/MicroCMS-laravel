@@ -4,22 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Comment;
+use App\Http\Requests\CommentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
     // Store comment
-    public function store(Request $request, Post $post) {
-        $formFields = $request->validate([
-            'content' => 'required|min:3'
-        ]);
+    public function store(CommentRequest $request, Post $post) {
 
-        $formFields['post_id'] = $post->id;
-        $formFields['user_id'] = Auth::user()->id;
-        $formFields['approved'] = true;
+        $validated = $request->validated();
 
-        Comment::create($formFields);
+        $validated['post_id'] = $post->id;
+        $validated['user_id'] = Auth::user()->id;
+        $validated['approved'] = true;
+
+        Comment::create($validated);
 
         return redirect()->route('posts.single', $post->slug)
             ->with('info', 'Comment has been created successfully');
@@ -31,8 +31,8 @@ class CommentsController extends Controller
     }
 
     // Update comment
-    public function update(Request $request, Comment $comment) {
-        $comment->update(['content' => $request->comment]);
+    public function update(CommentRequest $request, Comment $comment) {
+        $comment->update($request->validated());
         return back()->with('info', 'Comment has been updated successfully');
     }
 
