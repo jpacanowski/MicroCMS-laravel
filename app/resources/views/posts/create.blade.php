@@ -20,16 +20,22 @@
       @csrf
 
       <label for="post_title">Post title:</label>
-      <input id="post_title" name="title" type="text" value="" />
+      <input id="post_title" name="title" type="text" value="{{old('title')}}" />
+      @error('title')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
 
       <label for="post_status">Post status:</label>
       <select id="post_status" name="status" class="form-control">
-        <option value="PUBLISHED" selected>PUBLISHED</option>
-        <option value="DRAFT">DRAFT</option>
+        <option value="PUBLISHED" @selected(old('status') == 'PUBLISHED')>PUBLISHED</option>
+        <option value="DRAFT" @selected(old('status') == 'DRAFT')>DRAFT</option>
       </select>
 
       <label for="post_content">Post content:</label>
-      <textarea id="post_content" name="content"></textarea>
+      <textarea id="post_content" name="content">{{old('content')}}</textarea>
+      @error('content')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
 
       <input type="submit" value="Add post" />
 

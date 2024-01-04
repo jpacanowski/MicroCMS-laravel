@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -30,17 +31,14 @@ class PostsController extends Controller
     }
 
     // Store post data
-    public function store(Request $request) {
-        $formFields = $request->validate([
-            'title' => 'required',
-            'status' => 'required',
-            'content' => 'required'
-        ]);
+    public function store(PostRequest $request) {
 
-        $formFields['user_id'] = auth()->user()->id;
-        $formFields['slug'] = Str::slug($formFields['title'], '-');
+        $validated = $request->validated();
 
-        $post = Post::create($formFields);
+        $validated['user_id'] = auth()->user()->id;
+        $validated['slug'] = Str::slug($validated['title'], '-');
+
+        $post = Post::create($validated);
 
         return redirect()->route('posts.edit', $post)
             ->with('info', 'Post has been created successfully');
@@ -54,22 +52,20 @@ class PostsController extends Controller
     }
 
     // Update post data
-    public function update(Request $request, Post $post) {
-        $formFields = $request->validate([
-            'title' => 'required',
-            'status' => 'required',
-            'content' => 'required'
-        ]);
+    public function update(PostRequest $request, Post $post) {
 
-        $formFields['slug'] = Str::slug($formFields['title'], '-');
+        $validated = $request->validated();
 
-        $post->update($formFields);
+        $validated['slug'] = Str::slug($validated['title'], '-');
+
+        $post->update($validated);
         return back()->with('info', 'Post has been updated successfully');
     }
 
     // Delete post
     public function destroy(Post $post) {
         $post->delete();
+        $post->comments()->delete();
         return back()->with('info', 'Post has been deleted successfully');
     }
 }
