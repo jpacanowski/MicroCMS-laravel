@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Http\Requests\PageRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,16 +23,13 @@ class PagesController extends Controller
     }
 
     // Store page data
-    public function store(Request $request) {
-        $formFields = $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'status' => 'required'
-        ]);
+    public function store(PageRequest $request) {
 
-        $formFields['slug'] = Str::slug($formFields['title'], '-');
+        $validated = $request->validated();
 
-        $page = Page::create($formFields);
+        $validated['slug'] = Str::slug($validated['title'], '-');
+
+        $page = Page::create($validated);
 
         return redirect()->route('pages.edit', $page)
             ->with('info', 'Page has been created successfully');
@@ -45,16 +43,13 @@ class PagesController extends Controller
     }
 
     // Update page data
-    public function update(Request $request, Page $page) {
-        $formFields = $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-            'status' => 'required'
-        ]);
+    public function update(PageRequest $request, Page $page) {
 
-        $formFields['slug'] = Str::slug($formFields['title'], '-');
+        $validated = $request->validated();
 
-        $page->update($formFields);
+        $validated['slug'] = Str::slug($validated['title'], '-');
+
+        $page->update($validated);
         return back()->with('info', 'Page has been updated successfully');
     }
 

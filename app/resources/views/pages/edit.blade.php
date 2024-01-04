@@ -26,6 +26,9 @@
 
       <label for="page_title">Page title:</label>
       <input id="page_title" name="title" type="text" value="{{ $page->title }}" />
+      @error('title')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
 
       <label for="page_status">Post status:</label>
       <select id="page_status" name="status" class="form-control">
@@ -35,6 +38,9 @@
 
       <label for="page_content">Page content:</label>
       <textarea id="page_content" name="content">{{ $page->content }}</textarea>
+      @error('content')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
 
       <input type="submit" value="Save" />
 

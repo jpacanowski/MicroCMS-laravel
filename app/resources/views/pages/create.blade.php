@@ -20,16 +20,22 @@
       @csrf
 
       <label for="page_title">Page title:</label>
-      <input id="page_title" name="title" type="text" value="" />
+      <input id="page_title" name="title" type="text" value="{{old('title')}}" />
+      @error('title')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
 
       <label for="page_status">Post status:</label>
       <select id="page_status" name="status" class="form-control">
-        <option value="PUBLISHED" selected>PUBLISHED</option>
-        <option value="DRAFT">DRAFT</option>
+        <option value="PUBLISHED" @selected(old('status') == 'PUBLISHED')>PUBLISHED</option>
+        <option value="DRAFT" @selected(old('status') == 'DRAFT')>DRAFT</option>
       </select>
 
       <label for="page_content">Page content:</label>
-      <textarea id="page_content" name="content"></textarea>
+      <textarea id="page_content" name="content">{{old('content')}}</textarea>
+      @error('content')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
 
       <input type="submit" value="Add page" />
 
