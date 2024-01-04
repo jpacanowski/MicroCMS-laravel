@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('site_title');
-            $table->string('site_tagline');
-            $table->string('site_description');
-            $table->string('site_keywords');
-            $table->string('site_url');
+            $table->string('site_title')->nullable(false);
+            $table->string('site_tagline')->nullable();
+            $table->string('site_description')->nullable();
+            $table->string('site_keywords')->nullable();
+            $table->string('site_url')->nullable(false);
             $table->integer('posts_per_page')->default(10);
             $table->timestamps();
         });
