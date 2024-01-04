@@ -24,20 +24,33 @@
       @csrf
       @method('PUT')
 
-      <label for="username">Username:</label>
-      <input id="username" name="name" type="text" class="form-control" value="{{ $user->name }}" />
+      <label for="username">User name:</label>
+      <input id="username" name="name" type="text" class="form-control" value="{{$user->name}}" />
 
-      <!-- <label for="firstname">First name:</label>
-      <input id="firstname" name="firstname" type="text" class="form-control" value="{{ $user->firstname }}" /> -->
+      @error('name')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
 
-      <!-- <label for="lastname">Last name:</label>
-      <input id="lastname" name="lastname" type="text" class="form-control" value="{{ $user->lastname }}" /> -->
+      <label for="firstname">First name:</label>
+      <input id="firstname" name="firstname" type="text" class="form-control" value="{{$user->firstname}}" />
+
+      @error('firstname')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
+
+      <label for="lastname">Last name:</label>
+      <input id="lastname" name="lastname" type="text" class="form-control" value="{{$user->lastname}}" />
+
+      @error('lastname')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
 
       <label for="email">E-mail:</label>
-      <input id="email" name="email" type="email" class="form-control" value="{{ $user->email }}" />
+      <input id="email" name="email" type="email" class="form-control" value="{{$user->email}}" />
 
-      <!-- <label for="password">E-mail:</label>
-      <input id="password" name="password" type="password" class="form-control" value="{{ $user->password }}" /> -->
+      @error('email')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
 
       <label for="role">User role:</label>
       <select id="role" name="role" class="form-control">

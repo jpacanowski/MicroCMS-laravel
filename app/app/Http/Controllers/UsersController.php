@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -55,19 +56,8 @@ class UsersController extends Controller
     }
 
     // Store user data
-    public function store(Request $request) {
-        $formFields = $request->validate([
-            'name' => 'required|min:3',
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:6',
-            'role' => 'required',
-            'bio' => ''
-        ]);
-
-        $user = User::create($formFields);
-
+    public function store(UserRequest $request) {
+        $user = User::create($request->validated());
         return redirect()->route('users.edit', $user)
             ->with('info', 'User has been created successfully');
     }
@@ -80,17 +70,8 @@ class UsersController extends Controller
     }
 
     // Update user data
-    public function update(Request $request, User $user) {
-        $formFields = $request->validate([
-            'name' => 'required',
-            'firstname' => '',
-            'lastname' => '',
-            'bio' => '',
-            'email' => 'required|email',
-            'role' => ''
-        ]);
-
-        $user->update($formFields);
+    public function update(UserRequest $request, User $user) {
+        $user->update($request->validated());
         return back()->with('info', 'User has been updated successfully');
     }
 
