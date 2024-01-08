@@ -11,6 +11,7 @@ class Post extends Model
 
     protected $fillable = [
         'user_id',
+        'category_id',
         'title',
         'status',
         'content',
@@ -26,6 +27,10 @@ class Post extends Model
         ];
     }
 
+    public function scopePublished($query) {
+        $query->whereStatus('PUBLISHED');
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -34,5 +39,10 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

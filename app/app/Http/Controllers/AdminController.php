@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Models\User;
 use App\Models\Comment;
 use App\Models\Settings;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,17 +52,24 @@ class AdminController extends Controller
         ]);
     }
 
-    // Admin panel - settings
-    public function settings() {
-        return view('dashboard.settings', [
-            'settings' => Settings::first()
-        ]);
-    }
-
     // Admin panel - comments
     public function comments() {
         return view('dashboard.comments', [
             'comments' => Comment::latest()->get()
+        ]);
+    }
+
+    // Admin panel - categories
+    public function categories() {
+        return view('dashboard.categories', [
+            'categories' => Category::all()
+        ]);
+    }
+
+    // Admin panel - settings
+    public function settings() {
+        return view('dashboard.settings', [
+            'settings' => Settings::first()
         ]);
     }
 

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->foreignId('user_id')->nullable(false)->unsigned();
+            $table->foreignId('category_id')->nullable(false)->unsigned();
             $table->integer('visits_count')->unsigned()->default(0);
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
             $table->string('title')->nullable(false);

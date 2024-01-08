@@ -31,6 +31,17 @@
         <option value="DRAFT" @selected(old('status') == 'DRAFT')>DRAFT</option>
       </select>
 
+      <label for="post_category" class="visually-hidden">Thread category:</label>
+      <select id="post_category" name="category_id" class="form-control">
+      <option value="">[Thread category]</option>
+        @foreach ($categories as $category)
+          <option value="{{ $category->id }}" @selected(old('category_id') == $category->id)>{{ $category->name }}</option>
+        @endforeach
+      </select>
+      @error('category_id')
+        <p class="alert-danger">{{$message}}</p>
+      @enderror
+
       <label for="post_content">Post content:</label>
       <textarea id="post_content" name="content">{{old('content')}}</textarea>
       @error('content')

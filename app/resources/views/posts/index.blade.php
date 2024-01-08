@@ -15,7 +15,7 @@
           @foreach ($posts as $post)
             <li class="postlist__item">
               <time>{{ $post->created_at->format('Y-m-d') }}</time>
-              <h2><a href="{{ $post->slug }}">{{ $post->title }}</a></h2>
+              <h2><a href="/{{ $post->slug }}">{{ $post->title }}</a></h2>
             </li>
           @endforeach
         </ul>

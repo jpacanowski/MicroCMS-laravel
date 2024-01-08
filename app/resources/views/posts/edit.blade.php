@@ -33,6 +33,16 @@
         <option value="DRAFT" {{ $post->status == 'DRAFT' ? 'selected' : '' }}>DRAFT</option>
       </select>
 
+      <label for="post_category">Thread category:</label>
+      <select id="post_category" name="category_id" class="form-control">
+        <option value="{{ $post->category->id }}" selected>{{ $post->category->name }}</option>
+        @foreach ($categories as $category)
+          @if($category->name != $post->category->name)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+          @endif
+        @endforeach
+      </select>
+
       <label for="post_content">Post content:</label>
       <textarea id="post_content" name="content">{{ $post->content }}</textarea>
 

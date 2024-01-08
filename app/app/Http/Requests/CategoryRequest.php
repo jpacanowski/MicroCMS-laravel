@@ -2,11 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\PostStatus;
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,27 +31,23 @@ class PostRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'title' => 'required|string|min:3|max:255',
-            'content' => 'required|string|min:3',
-            'status' => [Rule::enum(PostStatus::class)],
-            'category_id' => 'required|integer'
+            'name' => 'required|string|min:3|max:255',
+            'slug' => 'required|string|min:3|max:255'
         ];
     }
 
     protected function update(): array
     {
         return [
-            'title' => 'required|string|min:3|max:255',
-            'content' => 'required|string|min:3',
-            'status' => [Rule::enum(PostStatus::class)],
-            'category_id' => 'required|integer'
+            'name' => 'required|string|min:3|max:255',
+            'slug' => 'required|string|min:3|max:255'
         ];
     }
 
     protected function destroy(): array
     {
         return [
-            'id' => 'required|integer|exists:posts,id'
+            'id' => 'required|integer|exists:categories,id'
         ];
     }
 }

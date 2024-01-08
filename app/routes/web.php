@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,6 +65,15 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     // Admin panel - form to edit user
     Route::get('/users/edit/{user:id}', [UsersController::class, 'edit'])->name('users.edit');
 
+    // Admin panel - categories
+    Route::get('/categories', [AdminController::class, 'categories'])->name('dashboard.categories');
+
+    // Admin panel - form to create new category
+    Route::get('/categories/create', [CategoriesController::class, 'create'])->name('categories.create');
+
+    // Admin panel - form to edit category
+    Route::get('/categories/edit/{category:id}', [CategoriesController::class, 'edit'])->name('categories.edit');
+
     // Admin panel - settings
     Route::get('/settings', [AdminController::class, 'settings'])->name('dashboard.settings');
 
@@ -110,6 +120,9 @@ Route::put('/pages/{page}', [PagesController::class, 'update']);
 Route::delete('/pages/{page}', [PagesController::class, 'destroy']);
 
 
+Route::get('/categories/{category:slug}', [CategoriesController::class, 'index']);
+
+
 // Store user data
 Route::post('/users', [UsersController::class, 'store']);
 
@@ -134,6 +147,16 @@ Route::prefix('comment')->group(function () {
     // Delete comment
     Route::delete('/delete/{comment:id}', [CommentsController::class, 'destroy']);
 });
+
+
+// Store category
+Route::post('/categories', [CategoriesController::class, 'store']);
+
+// Update category
+Route::put('/categories/{category:id}', [CategoriesController::class, 'update']);
+
+// Delete category
+Route::delete('/categories/{category:id}', [CategoriesController::class, 'destroy']);
 
 
 // Update settings

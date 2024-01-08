@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Models\User;
 use App\Models\Comment;
 use App\Models\Settings;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
         Page::truncate();
         Comment::truncate();
         Settings::truncate();
+        Category::truncate();
 
         Settings::create([
             'site_title' => 'World of Unix',
@@ -60,8 +62,25 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        $category1 = Category::create([
+            'name' => 'Programming',
+            'slug' => 'programming'
+        ]);
+
+        $category2 = Category::create([
+            'name' => 'Hardware',
+            'slug' => 'hardware'
+        ]);
+
+        $category3 = Category::create([
+            'name' => 'Operating systems',
+            'slug' => 'operating-systems'
+        ]);
+
+
         Post::create([
             'user_id' => $user1->id,
+            'category_id' => $category3->id,
             'title' => 'Why I switched to OpenBSD',
             'slug' => 'why-i-switched-to-openbsd',
             // 'tags' => 'openbsd',
@@ -71,6 +90,7 @@ class DatabaseSeeder extends Seeder
 
         Post::create([
             'user_id' => $user1->id,
+            'category_id' => $category1->id,
             'title' => 'I started learning Hindi',
             'slug' => 'i-started-learning-hindi',
             // 'tags' => 'hindi',
@@ -80,6 +100,7 @@ class DatabaseSeeder extends Seeder
 
         Post::create([
             'user_id' => $user2->id,
+            'category_id' => $category3->id,
             'title' => 'Things to do after Installing FreeBSD',
             'slug' => 'things-to-do-after-installing-freebsd',
             // 'tags' => 'freebsd',
@@ -89,6 +110,7 @@ class DatabaseSeeder extends Seeder
 
         Post::create([
             'user_id' => $user2->id,
+            'category_id' => $category1->id,
             'title' => 'SQL queries optimalization',
             'slug' => 'sql-queries-optimalization',
             // 'tags' => 'sql',
@@ -99,6 +121,7 @@ class DatabaseSeeder extends Seeder
 
         Post::create([
             'user_id' => $user2->id,
+            'category_id' => $category1->id,
             'title' => 'How to become a hacker',
             'slug' => 'how-to-become-a-hacker',
             // 'tags' => 'hacker',
